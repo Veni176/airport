@@ -1,4 +1,4 @@
-package com.bataklieva.airport.passenger;
+package com.bataklieva.airport.passenger.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
