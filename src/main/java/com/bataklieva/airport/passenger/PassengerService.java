@@ -1,5 +1,6 @@
 package com.bataklieva.airport.passenger;
 
+import com.bataklieva.airport.passenger.exception.PassengerNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

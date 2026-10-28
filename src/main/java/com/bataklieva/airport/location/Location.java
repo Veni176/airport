@@ -25,4 +25,7 @@ public class Location {
 
     @Column(name = "airport_name", nullable = false)
     private String airportName;
+
+    @Column(name = "time_zone", nullable = false)
+    private String timeZone;
 }
