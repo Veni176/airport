@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class PassengerNotFoundException extends RuntimeException {
-    public PassengerNotFoundException(String email) {
-        super("Passenger with email: " + email + " was not found!");
+    public PassengerNotFoundException(Object id) {
+        super("Passenger " + id + " was not found!");
     }
 }
