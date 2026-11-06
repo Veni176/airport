@@ -1,9 +1,12 @@
 package com.bataklieva.airport.plane;
 
+import com.bataklieva.airport.plane.dto.CreatePlaneRequest;
+import com.bataklieva.airport.plane.dto.PlaneResponse;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/planes")
@@ -16,23 +19,24 @@ public class PlaneController {
     }
 
     @PostMapping
-    public Plane createPlane(@RequestBody Plane plane) {
-        return planeService.createPlane(plane);
+    @ResponseStatus(HttpStatus.CREATED)
+    public PlaneResponse createPlane(@Valid @RequestBody CreatePlaneRequest request) {
+        return planeService.createPlane(request);
     }
 
     @DeleteMapping("/{id}")
-    public String deletePlane(@PathVariable Long id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePlane(@PathVariable Long id) {
         planeService.deletePlane(id);
-        return "Plane with ID: " + id + " is deleted!";
     }
 
     @GetMapping
-    public List<Plane> getAllPlanes() {
+    public List<PlaneResponse> getAllPlanes() {
         return planeService.getAllPlanes();
     }
 
     @GetMapping("/{id}")
-    public Optional<Plane> getPlaneById(@PathVariable Long id) {
+    public PlaneResponse getPlaneById(@PathVariable Long id) {
         return planeService.getPlaneById(id);
     }
 }

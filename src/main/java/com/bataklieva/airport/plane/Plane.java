@@ -1,14 +1,14 @@
 package com.bataklieva.airport.plane;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Plane {
 
     @Id
@@ -18,12 +18,12 @@ public class Plane {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "registration_number", nullable = false)
+    @Column(name = "registration_number", unique = true, nullable = false)
     private String registrationNumber;
 
-    @Column(name = "seat_number")
-    private short seatNumber;
+    @Column(name = "seat_capacity", nullable = false)
+    private short seatCapacity;
 
     @Column(name = "status", nullable = false)
-    private boolean isTaken;
+    private boolean taken;
 }
