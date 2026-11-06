@@ -1,16 +1,14 @@
 package com.bataklieva.airport.passenger;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Passenger {
 
     @Id
@@ -26,9 +24,9 @@ public class Passenger {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @Column(name = "status", nullable = false)
-    private boolean isActive;
+    private boolean active;
 }
